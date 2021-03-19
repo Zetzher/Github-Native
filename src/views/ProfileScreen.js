@@ -33,10 +33,10 @@ const ProfileScreen = ({route, navigation}) => {
     repoStarred,
     follow,
     followMe,
+    commits,
     loader,
   } = route.params;
 
-console.log(userRepos, 'repos')
   const scrollViewCarac = [
     'Overview',
     `Repositories ${userRepos.length}`,
@@ -64,25 +64,16 @@ console.log(userRepos, 'repos')
     }
   };
 
-  const getCommits = async () => {
-    try {
-    // const response = await userRepos.map(data =>  axios.get(generatePath("https://api.github.com/repos/:fullName", {fullName: data.full_name})))
-  
-    } catch (err) {
-      console.error(err)
-    }
-  }
 
   useEffect(() => {
     secretReadme();
-    getCommits();
     loader(false);
   }, []);
 
   return (
     <>
       <Container>
-        <Navbar />
+        <Navbar commits={commits} />
 
         <ScrollView>
           <View style={globalStyles.userInfo}>

@@ -54,15 +54,30 @@ const LandingPage = () => {
         }),
       );
 
+      const commitsResponse = await axios.get(
+        generatePath('https://api.github.com/users/:username/events', {
+          username: username,
+        }),
+      );
+      const arrComits = [];
+      
+        commitsResponse.data.map(data => {
+          if (data.payload.commits) {
+            const {created_at, payload: {commits}} = data;
+            const obj = {creado: created_at, commits: commits}
+            arrComits.push(obj);
+          }
+        })
+
       navigation.navigate('Profile', {
         userInfo: response.data,
         userRepos: repoResponse.data,
         repoStarred: starredResponse.data,
         follow: followersResponse.data,
         followMe: followingResponse.data,
-        loader: setLoader
+        commits: arrComits,
+        loader: setLoader,
       });
-     
     } catch (err) {
       return null;
     }
@@ -90,8 +105,22 @@ const LandingPage = () => {
               />
             </Item>
           </Form>
-          {loader &&<LottieView source={require('../assets/loader/loader.json')} autoPlay loop speed={-0.8} style={{width: 100, height: 100, position: "absolute", bottom: 0, right: 0}} />}
-          
+          {loader && (
+            <LottieView
+              source={require('../assets/loader/loader.json')}
+              autoPlay
+              loop
+              speed={-0.8}
+              style={{
+                width: 100,
+                height: 100,
+                position: 'absolute',
+                bottom: 0,
+                right: 0,
+              }}
+            />
+          )}
+
           <View style={{width: '40%'}}>
             <Button
               square

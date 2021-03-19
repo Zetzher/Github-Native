@@ -9,14 +9,16 @@ import {faBars, faTimes} from '@fortawesome/free-solid-svg-icons';
 
 import globalStyles from '../styles/global';
 
-const Navbar = () => {
+const Navbar = props => {
   const [menu, setMenu] = useState(false);
   const navigation = useNavigation();
+
+  const {commits} = props;
 
   return (
     <>
       <View style={globalStyles.headerNav}>
-        <TouchableHighlight onPress={() => navigation.navigate("Landing")}>
+        <TouchableHighlight onPress={() => navigation.navigate('Landing')}>
           <Image
             style={globalStyles.githubIcon}
             source={require('../assets/github_monster.png')}
@@ -69,7 +71,12 @@ const Navbar = () => {
                 borderColor: '#5a616a',
                 justifyContent: 'center',
               }}>
-              <Text onPress={() => navigation.navigate('Commits')}>
+              <Text
+                onPress={() =>
+                  navigation.navigate('Commits', {
+                    userCommits: commits,
+                  })
+                }>
                 Commits
               </Text>
             </View>
