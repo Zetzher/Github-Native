@@ -7,6 +7,7 @@ const Stack = createStackNavigator();
 
 import LandingPage from './src/views/LandingPage';
 import ProfileScreen from './src/views/ProfileScreen';
+import Commits from './src/views/Commits';
 
 const App = () => {
   return (
@@ -27,6 +28,15 @@ const App = () => {
             component={ProfileScreen}
             options={{
               title: 'Profile',
+              headerShown: false,
+            }}
+          />
+
+          <Stack.Screen
+            name="Commits"
+            component={Commits}
+            options={{
+              title: 'Commits',
               headerShown: false,
             }}
           />

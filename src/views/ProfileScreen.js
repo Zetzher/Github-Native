@@ -6,22 +6,19 @@ import {
   View,
   Image,
   ScrollView,
-  Linking,
-  TouchableHighlight,
+  Linking
 } from 'react-native';
 
-import * as Animatable from 'react-native-animatable';
-
-import {Container, Button, Text, Accordion, Header, Content} from 'native-base';
+import {Container, Button, Text} from 'native-base';
 
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {
-  faBars,
   faLink,
   faUserFriends,
-  faStar,
+  faStar
 } from '@fortawesome/free-solid-svg-icons';
 import ScrollTopics from '../components/ScrollTopics';
+import Navbar from '../components/Navbar';
 
 import globalStyles from '../styles/global';
 
@@ -29,7 +26,6 @@ const ProfileScreen = ({route, navigation}) => {
   const [scrollTopic, setScrollTopic] = useState('Overview');
   const [secret, setSecret] = useState();
   const [errorSecret, setErrorSecret] = useState(false);
-  const [menu, setMenu] = useState(true);
 
   const {
     userInfo: {avatar_url, login, name, bio, blog, followers, following},
@@ -39,6 +35,8 @@ const ProfileScreen = ({route, navigation}) => {
     followMe,
     loader,
   } = route.params;
+
+console.log(userRepos, 'repos')
   const scrollViewCarac = [
     'Overview',
     `Repositories ${userRepos.length}`,
@@ -53,6 +51,7 @@ const ProfileScreen = ({route, navigation}) => {
           username: login,
         }),
       );
+     
       setSecret(response.data);
     } catch (err) {
       const {config, status} = err.response;
@@ -65,39 +64,32 @@ const ProfileScreen = ({route, navigation}) => {
     }
   };
 
+  const getCommits = async () => {
+    try {
+    // const response = await userRepos.map(data =>  axios.get(generatePath("https://api.github.com/repos/:fullName", {fullName: data.full_name})))
+  
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   useEffect(() => {
     secretReadme();
+    getCommits();
     loader(false);
   }, []);
-  const dataArray = [
-    {title: 'First Element', content: 'Lorem ipsum dolor sit amet'},
-    {title: 'Second Element', content: 'Lorem ipsum dolor sit amet'},
-    {title: 'Third Element', content: 'Lorem ipsum dolor sit amet'},
-  ];
+
   return (
     <>
       <Container>
-        <View style={globalStyles.headerNav}>
-          <TouchableHighlight onPress={() => navigation.goBack()}>
-            <Image
-              style={globalStyles.githubIcon}
-              source={require('../assets/github_monster.png')}
-            />
-          </TouchableHighlight>
-          <FontAwesomeIcon
-            style={{position: 'relative', right: 20, color: '#FFF'}}
-            icon={faBars}
-            onPress={() => setMenu(!menu)}
-          />
-        </View>
-        {menu && <View style={globalStyles.navbar}><Text>aqui va el menu</Text></View>}
+        <Navbar />
+
         <ScrollView>
           <View style={globalStyles.userInfo}>
             <Image
               style={{width: 45, height: 45, borderRadius: 100, marginLeft: 20}}
               source={{uri: avatar_url}}
             />
-          
 
             <View style={globalStyles.nameUser}>
               <Text style={{fontWeight: 'bold', fontSize: 20}}>{name}</Text>

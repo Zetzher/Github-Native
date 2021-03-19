@@ -60,10 +60,10 @@ const globalStyles = StyleSheet.create({
     textTransform: 'uppercase',
   },
   githubIcon: {
-    width: 50,
-    height: 50,
-    position: "relative",
-    left: 10
+    width: 35,
+    height: 35,
+    position: 'relative',
+    left: 10,
   },
   githubIconLanding: {
     zIndex: 1,
@@ -73,17 +73,28 @@ const globalStyles = StyleSheet.create({
     top: 10,
   },
   navbar: {
-    backgroundColor: "#ECECEC",
-    width: "40%",
-    height: "80%",
-    position: "absolute",
+    backgroundColor: '#FFF',
+    width: '86%',
+    height: '100%',
+    position: 'absolute',
     zIndex: 2,
-    bottom: "10%",
+    top: 0,
     right: 0,
-    borderBottomLeftRadius: 20
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.37,
+    shadowRadius: 7.49,
+
+    elevation: 12,
+  },
+  navbarTopics: {
+    alignItems: 'center',
   },
   headerNav: {
-    height: "10%",
+    height: '7%',
     backgroundColor: '#000',
     flexDirection: 'row',
     justifyContent: 'space-between',

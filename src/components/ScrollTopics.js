@@ -13,7 +13,6 @@ import Starred from "./Topics/Starred";
 const ScrollTopics = props => {
   const {topic, message, userRepos, followers, following, repoStarred} = props;
   
- console.log(following, 'props')
 
   return (
     <>

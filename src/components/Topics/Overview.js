@@ -4,7 +4,7 @@ import {Text} from 'native-base';
 
 const Overview = (props) => {
     const {message} = props;
-    console.log(message, 'message')
+
   return (
     <>
       <View
