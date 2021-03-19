@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {generatePath} from 'react-router';
 import {View, Image} from 'react-native';
+import LottieView from 'lottie-react-native';
 import {
   Container,
   Button,
@@ -20,10 +21,12 @@ import {useNavigation} from '@react-navigation/native';
 const LandingPage = () => {
   const [username, setUsername] = useState();
   const [errorMes, setErrorMes] = useState();
+  const [loader, setLoader] = useState(false);
 
   const navigation = useNavigation();
 
   const gettingProfile = async () => {
+    setLoader(!loader);
     try {
       const response = await axios.get(
         generatePath('https://api.github.com/users/:username', {
@@ -50,15 +53,16 @@ const LandingPage = () => {
           username: username,
         }),
       );
-      
 
       navigation.navigate('Profile', {
         userInfo: response.data,
         userRepos: repoResponse.data,
         repoStarred: starredResponse.data,
         follow: followersResponse.data,
-        followMe: followingResponse.data
+        followMe: followingResponse.data,
+        loader: setLoader
       });
+     
     } catch (err) {
       return null;
     }
@@ -86,6 +90,8 @@ const LandingPage = () => {
               />
             </Item>
           </Form>
+          {loader &&<LottieView source={require('../assets/loader/loader.json')} autoPlay loop speed={-0.8} style={{width: 100, height: 100, position: "absolute", bottom: 0, right: 0}} />}
+          
           <View style={{width: '40%'}}>
             <Button
               square

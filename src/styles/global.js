@@ -11,6 +11,10 @@ const globalStyles = StyleSheet.create({
     flex: 1,
     zIndex: 2,
   },
+  lottie: {
+    width: 100,
+    height: 100,
+  },
   titulo: {
     textAlign: 'center',
     position: 'relative',
@@ -44,7 +48,7 @@ const globalStyles = StyleSheet.create({
     marginTop: 20,
     width: '100%',
     borderRadius: 8,
-    zIndex: 2
+    zIndex: 2,
   },
   botonTexto: {textTransform: 'uppercase', fontWeight: 'bold', color: '#FFF'},
   enlace: {
@@ -58,6 +62,8 @@ const globalStyles = StyleSheet.create({
   githubIcon: {
     width: 50,
     height: 50,
+    position: "relative",
+    left: 10
   },
   githubIconLanding: {
     zIndex: 1,
@@ -66,12 +72,22 @@ const globalStyles = StyleSheet.create({
     width: '100%',
     top: 10,
   },
+  navbar: {
+    backgroundColor: "#ECECEC",
+    width: "40%",
+    height: "80%",
+    position: "absolute",
+    zIndex: 2,
+    bottom: "10%",
+    right: 0,
+    borderBottomLeftRadius: 20
+  },
   headerNav: {
-    height: 70,
+    height: "10%",
     backgroundColor: '#000',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   userInfo: {
     flexDirection: 'row',
@@ -93,7 +109,7 @@ const globalStyles = StyleSheet.create({
   scrollDetailed: {
     alignItems: 'center',
     flex: 1,
-    marginTop: 10
+    marginTop: 10,
   },
 });
 

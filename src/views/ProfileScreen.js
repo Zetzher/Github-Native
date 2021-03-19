@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {generatePath} from 'react-router';
+import axios from 'axios';
+
 import {
   View,
   Image,
@@ -7,36 +9,27 @@ import {
   Linking,
   TouchableHighlight,
 } from 'react-native';
-import {
-  Container,
-  Header,
-  Left,
-  Body,
-  Right,
-  Button,
-  Icon,
-  Title,
-  Text,
-} from 'native-base';
-import ScrollTopics from '../components/ScrollTopics';
-import axios from 'axios';
+
+import * as Animatable from 'react-native-animatable';
+
+import {Container, Button, Text, Accordion, Header, Content} from 'native-base';
 
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {
-  faBell,
   faBars,
-  faSmile,
   faLink,
   faUserFriends,
   faStar,
 } from '@fortawesome/free-solid-svg-icons';
+import ScrollTopics from '../components/ScrollTopics';
 
 import globalStyles from '../styles/global';
 
 const ProfileScreen = ({route, navigation}) => {
   const [scrollTopic, setScrollTopic] = useState('Overview');
   const [secret, setSecret] = useState();
-  const [errorSecret, setErrorSecret] = useState();
+  const [errorSecret, setErrorSecret] = useState(false);
+  const [menu, setMenu] = useState(true);
 
   const {
     userInfo: {avatar_url, login, name, bio, blog, followers, following},
@@ -44,6 +37,7 @@ const ProfileScreen = ({route, navigation}) => {
     repoStarred,
     follow,
     followMe,
+    loader,
   } = route.params;
   const scrollViewCarac = [
     'Overview',
@@ -73,15 +67,17 @@ const ProfileScreen = ({route, navigation}) => {
 
   useEffect(() => {
     secretReadme();
+    loader(false);
   }, []);
+  const dataArray = [
+    {title: 'First Element', content: 'Lorem ipsum dolor sit amet'},
+    {title: 'Second Element', content: 'Lorem ipsum dolor sit amet'},
+    {title: 'Third Element', content: 'Lorem ipsum dolor sit amet'},
+  ];
   return (
     <>
       <Container>
         <View style={globalStyles.headerNav}>
-          <FontAwesomeIcon
-            style={{position: 'relative', left: 20, color: '#FFF'}}
-            icon={faBars}
-          />
           <TouchableHighlight onPress={() => navigation.goBack()}>
             <Image
               style={globalStyles.githubIcon}
@@ -90,15 +86,19 @@ const ProfileScreen = ({route, navigation}) => {
           </TouchableHighlight>
           <FontAwesomeIcon
             style={{position: 'relative', right: 20, color: '#FFF'}}
-            icon={faBell}
+            icon={faBars}
+            onPress={() => setMenu(!menu)}
           />
         </View>
+        {menu && <View style={globalStyles.navbar}><Text>aqui va el menu</Text></View>}
         <ScrollView>
           <View style={globalStyles.userInfo}>
             <Image
               style={{width: 45, height: 45, borderRadius: 100, marginLeft: 20}}
               source={{uri: avatar_url}}
             />
+          
+
             <View style={globalStyles.nameUser}>
               <Text style={{fontWeight: 'bold', fontSize: 20}}>{name}</Text>
               <Text style={{fontWeight: '100', fontSize: 15}}>{login}</Text>
@@ -135,7 +135,9 @@ const ProfileScreen = ({route, navigation}) => {
               </Text>
 
               <FontAwesomeIcon icon={faStar} style={{marginLeft: 5}} />
-              <Text style={{position: 'relative', left: 5}} onPress={() => setScrollTopic('starred')}>
+              <Text
+                style={{position: 'relative', left: 5}}
+                onPress={() => setScrollTopic('starred')}>
                 {repoStarred.length}
               </Text>
             </View>
