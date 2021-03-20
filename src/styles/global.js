@@ -95,7 +95,7 @@ const globalStyles = StyleSheet.create({
   },
   headerNav: {
     height: '7%',
-    backgroundColor: '#000',
+    backgroundColor: '#24292E',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -121,6 +121,47 @@ const globalStyles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     marginTop: 10,
+  },
+  packageView: {
+    height: 160,
+    borderWidth: 0.2,
+    borderRadius: 3,
+    marginBottom: 20,
+    paddingLeft: 20,
+    paddingTop: 20,
+  },
+  packageViewHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  packageImage: {
+    width: 15,
+    height: 15,
+    marginRight: 10,
+  },
+  packageButton: {
+    backgroundColor: '#FAFBFC',
+    borderRadius: 3,
+    height: 25,
+    borderWidth: 0.2,
+    position: 'relative',
+    top: 20,
+  },
+  packageButtonText: {
+    color: '#000',
+    fontSize: 10,
+    fontWeight: 'bold',
+  },
+  packageContainerDescription: {
+    width: '90%',
+    marginTop: 10,
+  },
+  packageTitle: {
+    fontWeight: 'bold',
+  },
+  packageDescription: {
+    fontSize: 11,
+    lineHeight: 20,
   },
 });
 

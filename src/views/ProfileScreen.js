@@ -28,7 +28,7 @@ const ProfileScreen = ({route, navigation}) => {
   const [errorSecret, setErrorSecret] = useState(false);
 
   const {
-    userInfo: {avatar_url, login, name, bio, blog, followers, following},
+    userInfo: {avatar_url, login, name, bio, blog, followers, following, twitter_username},
     userRepos,
     repoStarred,
     follow,
@@ -36,6 +36,8 @@ const ProfileScreen = ({route, navigation}) => {
     commits,
     loader,
   } = route.params;
+
+  //Pendiente poner el twitter_username con su logo si está disponible
 
   const scrollViewCarac = [
     'Overview',
