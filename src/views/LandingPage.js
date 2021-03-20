@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {generatePath} from 'react-router';
 import {View, Image} from 'react-native';
+import * as Animatable from 'react-native-animatable';
 import LottieView from 'lottie-react-native';
 import {
   Container,
@@ -12,6 +13,7 @@ import {
   Form,
   Item,
   Toast,
+  Root 
 } from 'native-base';
 import axios from 'axios';
 import globalStyles from '../styles/global';
@@ -26,6 +28,18 @@ const LandingPage = () => {
   const navigation = useNavigation();
 
   const gettingProfile = async () => {
+
+    if(!username){
+      Toast.show({
+        text: "Introduce un usuario",
+        textStyle:{fontSize: 16},
+        buttonText: "Vale",
+        position: "bottom",
+        buttonStyle: { backgroundColor: "#C2C3C8" },
+        duration: 4000
+      })
+      return;
+    } 
     setLoader(!loader);
     try {
       const response = await axios.get(
@@ -79,14 +93,28 @@ const LandingPage = () => {
         loader: setLoader,
       });
     } catch (err) {
-      return null;
+      const {status} = err.response;
+      
+      if(status === 404){
+        Toast.show({
+          text: "Usuario no encontrado",
+          textStyle:{fontSize: 20, fontWeight: "bold"},
+          buttonText: "Vale",
+          position: "bottom",
+          buttonStyle: { backgroundColor: "#C2C3C8" },
+          duration: 4000
+        })
+        setLoader(false);
+      }
+      
     }
   };
 
   return (
     <>
+    <Root>
       <Container style={globalStyles.contenedor}>
-        <View style={globalStyles.contenido}>
+        <Animatable.View animation="zoomIn" duration={1000} style={globalStyles.contenido}>
           <Image
             style={globalStyles.githubIconLanding}
             resizeMode="contain"
@@ -110,13 +138,13 @@ const LandingPage = () => {
               source={require('../assets/loader/loader.json')}
               autoPlay
               loop
-              speed={-0.8}
+              speed={1}
               style={{
                 width: 100,
                 height: 100,
                 position: 'absolute',
                 bottom: 0,
-                right: 0,
+                right: 0
               }}
             />
           )}
@@ -130,8 +158,9 @@ const LandingPage = () => {
               <Text style={globalStyles.botonTexto}>Buscar</Text>
             </Button>
           </View>
-        </View>
+        </Animatable.View>
       </Container>
+      </Root>
     </>
   );
 };

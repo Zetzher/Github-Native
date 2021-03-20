@@ -70,7 +70,7 @@ const globalStyles = StyleSheet.create({
     opacity: 0.1,
     position: 'absolute',
     width: '100%',
-    top: 10,
+    top: 30,
   },
   navbar: {
     backgroundColor: '#FFF',
