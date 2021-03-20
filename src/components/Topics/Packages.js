@@ -1,6 +1,8 @@
 import React from 'react';
 import {View, Image, ScrollView, Linking} from 'react-native';
 import {Button, Text, Badge} from 'native-base';
+import Unexpected from "../Unexpected";
+
 
 import globalStyles from '../../styles/global';
 
@@ -157,6 +159,7 @@ const Packages = () => {
           <Text style={globalStyles.packageButtonText}>Learn More</Text>
         </Button>
       </View>
+     <Unexpected />
     </View>
   );
 };

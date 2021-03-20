@@ -13,33 +13,31 @@ import {
   Form,
   Item,
   Toast,
-  Root 
+  Root,
 } from 'native-base';
 import axios from 'axios';
 import globalStyles from '../styles/global';
 
 import {useNavigation} from '@react-navigation/native';
 
-const LandingPage = () => {
+const LandingPage = props => {
   const [username, setUsername] = useState();
-  const [errorMes, setErrorMes] = useState();
   const [loader, setLoader] = useState(false);
 
   const navigation = useNavigation();
 
   const gettingProfile = async () => {
-
-    if(!username){
+    if (!username) {
       Toast.show({
-        text: "Introduce un usuario",
-        textStyle:{fontSize: 16},
-        buttonText: "Vale",
-        position: "bottom",
-        buttonStyle: { backgroundColor: "#C2C3C8" },
-        duration: 4000
-      })
+        text: 'Introduce un usuario',
+        textStyle: {fontSize: 16},
+        buttonText: 'Vale',
+        position: 'bottom',
+        buttonStyle: {backgroundColor: '#C2C3C8'},
+        duration: 4000,
+      });
       return;
-    } 
+    }
     setLoader(!loader);
     try {
       const response = await axios.get(
@@ -74,14 +72,17 @@ const LandingPage = () => {
         }),
       );
       const arrComits = [];
-      
-        commitsResponse.data.map(data => {
-          if (data.payload.commits) {
-            const {created_at, payload: {commits}} = data;
-            const obj = {creado: created_at, commits: commits}
-            arrComits.push(obj);
-          }
-        })
+
+      commitsResponse.data.map(data => {
+        if (data.payload.commits) {
+          const {
+            created_at,
+            payload: {commits},
+          } = data;
+          const obj = {creado: created_at, commits: commits};
+          arrComits.push(obj);
+        }
+      });
 
       navigation.navigate('Profile', {
         userInfo: response.data,
@@ -94,27 +95,28 @@ const LandingPage = () => {
       });
     } catch (err) {
       const {status} = err.response;
-      
-      if(status === 404){
+
+      if (status === 404) {
         Toast.show({
-          text: "Usuario no encontrado",
-          textStyle:{fontSize: 20, fontWeight: "bold"},
-          buttonText: "Vale",
-          position: "bottom",
-          buttonStyle: { backgroundColor: "#C2C3C8" },
-          duration: 4000
-        })
+          text: 'Usuario no encontrado',
+          textStyle: {fontSize: 20, fontWeight: 'bold'},
+          buttonText: 'Vale',
+          position: 'bottom',
+          buttonStyle: {backgroundColor: '#C2C3C8'},
+          duration: 4000,
+        });
         setLoader(false);
       }
-      
     }
   };
 
   return (
-    <>
     <Root>
       <Container style={globalStyles.contenedor}>
-        <Animatable.View animation="zoomIn" duration={1000} style={globalStyles.contenido}>
+        <Animatable.View
+          animation="zoomIn"
+          duration={1000}
+          style={globalStyles.contenido}>
           <Image
             style={globalStyles.githubIconLanding}
             resizeMode="contain"
@@ -144,7 +146,7 @@ const LandingPage = () => {
                 height: 100,
                 position: 'absolute',
                 bottom: 0,
-                right: 0
+                right: 0,
               }}
             />
           )}
@@ -160,8 +162,7 @@ const LandingPage = () => {
           </View>
         </Animatable.View>
       </Container>
-      </Root>
-    </>
+    </Root>
   );
 };
 

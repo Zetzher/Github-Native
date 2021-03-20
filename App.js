@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useState} from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -9,7 +9,9 @@ import LandingPage from './src/views/LandingPage';
 import ProfileScreen from './src/views/ProfileScreen';
 import Commits from './src/views/Commits';
 
-const App = () => {
+import Footer from './src/components/Footer';
+
+const App = (props) => {
   return (
     <>
       <NavigationContainer>

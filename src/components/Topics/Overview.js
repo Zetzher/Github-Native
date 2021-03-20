@@ -1,9 +1,10 @@
 import React from 'react';
 import {View, Linking} from 'react-native';
 import {Text} from 'native-base';
+import Unexpected from '../Unexpected';
 
-const Overview = (props) => {
-    const {message} = props;
+const Overview = props => {
+  const {message} = props;
 
   return (
     <>
@@ -16,6 +17,7 @@ const Overview = (props) => {
           height: 50,
           paddingLeft: 10,
           paddingTop: 10,
+          marginTop: 10
         }}>
         {message && message.html_url ? (
           <Text
@@ -26,6 +28,9 @@ const Overview = (props) => {
         ) : (
           <Text style={{fontSize: 14}}>{message}</Text>
         )}
+      </View>
+      <View style={{position: "relative", top: 40}}>
+        <Unexpected />
       </View>
     </>
   );

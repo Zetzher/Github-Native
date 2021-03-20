@@ -163,6 +163,10 @@ const globalStyles = StyleSheet.create({
     fontSize: 11,
     lineHeight: 20,
   },
+  termsFooter: {
+    color: "#0366D6",
+    fontSize: 11
+  }
 });
 
 export default globalStyles;

@@ -27,7 +27,7 @@ const Heatmap = props => {
             values={data}
             endDate={new Date()}
             numDays={105}
-            width={Dimensions.get('window').width}
+            width={Dimensions.get('window').width - 10}
             height={220}
             chartConfig={{
               backgroundColor: '#464646',

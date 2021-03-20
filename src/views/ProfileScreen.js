@@ -2,21 +2,13 @@ import React, {useState, useEffect} from 'react';
 import {generatePath} from 'react-router';
 import axios from 'axios';
 
-import {
-  View,
-  Image,
-  ScrollView,
-  Linking
-} from 'react-native';
+import {View, Image, ScrollView, Linking} from 'react-native';
 
 import {Container, Button, Text} from 'native-base';
 
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {
-  faLink,
-  faUserFriends,
-  faStar
-} from '@fortawesome/free-solid-svg-icons';
+import {faLink, faUserFriends, faStar} from '@fortawesome/free-solid-svg-icons';
+
 import ScrollTopics from '../components/ScrollTopics';
 import Navbar from '../components/Navbar';
 
@@ -28,7 +20,16 @@ const ProfileScreen = ({route, navigation}) => {
   const [errorSecret, setErrorSecret] = useState(false);
 
   const {
-    userInfo: {avatar_url, login, name, bio, blog, followers, following, twitter_username},
+    userInfo: {
+      avatar_url,
+      login,
+      name,
+      bio,
+      blog,
+      followers,
+      following,
+      twitter_username,
+    },
     userRepos,
     repoStarred,
     follow,
@@ -53,7 +54,7 @@ const ProfileScreen = ({route, navigation}) => {
           username: login,
         }),
       );
-     
+
       setSecret(response.data);
     } catch (err) {
       const {config, status} = err.response;
@@ -66,7 +67,6 @@ const ProfileScreen = ({route, navigation}) => {
     }
   };
 
-
   useEffect(() => {
     secretReadme();
     loader(false);
@@ -74,9 +74,8 @@ const ProfileScreen = ({route, navigation}) => {
 
   return (
     <>
+      <Navbar commits={commits} />
       <Container>
-        <Navbar commits={commits} />
-
         <ScrollView>
           <View style={globalStyles.userInfo}>
             <Image
@@ -156,6 +155,7 @@ const ProfileScreen = ({route, navigation}) => {
             </View>
           </View>
         </ScrollView>
+        
       </Container>
     </>
   );
