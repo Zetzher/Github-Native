@@ -1,4 +1,4 @@
-const GetDates = (commits, saveValues, saveMonths, setDays) => {
+const GetDates = (commits, saveValues, saveMonths) => {
   const arr = [];
 
   let months = {

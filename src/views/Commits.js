@@ -1,16 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {View, ScrollView, Dimensions} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {Container, Button, Text, Input, Form, Item, Toast} from 'native-base';
 import {LineChart, ContributionGraph} from 'react-native-chart-kit';
 
 import * as Animatable from 'react-native-animatable';
 
-import axios from 'axios';
-
 import Navbar from '../components/Navbar';
 import Algorithm from '../components/Algorithm/GetDates';
-import globalStyles from '../styles/global';
+import HeatMap from '../components/Graphs/Heatmap';
 
 const Commits = ({navigation, route}) => {
   const [monthValues, setMonthValues] = useState();
@@ -19,14 +15,26 @@ const Commits = ({navigation, route}) => {
 
   const {userCommits} = route.params;
 
+  const getDailyCommits = data => {
+    let dailyCommits = {};
+    data.map(data => {
+      const newDate = new Date(data.creado)
+        .toLocaleString('en-CA', {timeZone: 'UTC'})
+        .split(' ')[0]
+        .replace(',', '');
+      dailyCommits[newDate] != null
+        ? (dailyCommits[newDate].count += data.commits.length)
+        : (dailyCommits[newDate] = {date: newDate, count: data.commits.length});
+    });
+    console.log('JUSGHBFIJSBIUJGHSUIKJGHS', dailyCommits)
+    setDays(Object.values(dailyCommits));
+  };
+
   useEffect(() => {
     Algorithm(userCommits, setMonthValues, setMonths, setDays);
+    getDailyCommits(userCommits);
   }, []);
 
-  const dailyCommits = userCommits.map(data => {
-    return {date: data.creado, count: data.commits.length};
-  });
-  console.log(dailyCommits, 'daily');
 
   return (
     <>
@@ -88,45 +96,7 @@ const Commits = ({navigation, route}) => {
             </Animatable.View>
           </View>
         )}
-        <View
-          style={{
-            height: 300,
-            alignItems: 'center',
-            justifyContent: 'space-evenly',
-          }}>
-          <Animatable.Text
-            animation="fadeInDown"
-            duration={1000}
-            delay={3000}
-            style={{fontSize: 20, fontWeight: 'bold', zIndex: 2}}>
-            Commits per Day
-          </Animatable.Text>
-          <Animatable.View animation="flipInX" delay={4000} style={{zIndex: 1}}>
-            <ContributionGraph
-              values={dailyCommits}
-              endDate={userCommits[0].creado}
-              numDays={105}
-              width={Dimensions.get('window').width}
-              height={220}
-              chartConfig={{
-                backgroundColor: '#464646',
-                backgroundGradientFrom: '#464646',
-                backgroundGradientTo: '#A5A5A5',
-                decimalPlaces: 2, // optional, defaults to 2dp
-                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                style: {
-                  borderRadius: 16,
-                },
-                propsForDots: {
-                  r: '6',
-                  strokeWidth: '2',
-                  stroke: '#3E3E3E',
-                },
-              }}
-            />
-          </Animatable.View>
-        </View>
+        <HeatMap data={days && days} />
       </ScrollView>
     </>
   );
