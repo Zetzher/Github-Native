@@ -1,4 +1,4 @@
-const GetDates = (commits, saveValues, saveMonths) => {
+const GetDates = (commits, saveValues, saveMonths, setDays) => {
   const arr = [];
 
   let months = {
@@ -15,6 +15,8 @@ const GetDates = (commits, saveValues, saveMonths) => {
     nov: 0,
     dec: 0,
   };
+
+  
 
   commits.map(data => {
     const month = new Date(data.creado).getMonth();
