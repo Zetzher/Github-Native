@@ -9,7 +9,7 @@ import Packages from "./Topics/Packages";
 import Projects from "./Topics/Projects";
 
 const ScrollTopics = props => {
-  const {topic, message, userRepos, followers, following, repoStarred} = props;
+  const {topic, message, userRepos, followers, following, repoStarred, loginName} = props;
   
   return (
     <>
@@ -19,7 +19,7 @@ const ScrollTopics = props => {
       {topic === "followers" && <Followers users={followers} />}
       {topic === "starred" && <Starred star={repoStarred} /> }
       {topic === "Packages" && <Packages />}
-      {topic === "Projects" && <Projects />}
+      {topic === "Projects" && <Projects userName={loginName} />}
     </>
   );
 };

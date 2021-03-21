@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import React, {useState} from 'react';
+import {LogBox} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -11,7 +12,9 @@ import Commits from './src/views/Commits';
 
 import Footer from './src/components/Footer';
 
-const App = (props) => {
+const App = () => {
+  LogBox.ignoreLogs(['Warning: ...']);
+  LogBox.ignoreAllLogs();
   return (
     <>
       <NavigationContainer>

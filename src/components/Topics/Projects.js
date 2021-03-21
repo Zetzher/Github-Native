@@ -8,7 +8,8 @@ import Unexpected from '../Unexpected';
 
 import globalStyles from '../../styles/global';
 
-const Projects = () => {
+const Projects = (props) => {
+    const {userName} = props;
   return (
     <>
       <View style={{height: 150}}>
@@ -38,7 +39,7 @@ const Projects = () => {
             justifyContent: 'center',
           }}>
           <Text style={{fontWeight: 'bold', fontSize: 16, textAlign: 'center'}}>
-            Zetzher doesn't have any projects yet
+            {userName} doesn't have any projects yet
           </Text>
         </View>
       </View>

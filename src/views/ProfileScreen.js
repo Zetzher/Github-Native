@@ -193,6 +193,7 @@ const ProfileScreen = ({route, navigation}) => {
                 followers={follow}
                 following={followMe}
                 repoStarred={repoStarred}
+                loginName={login}
               />
             </View>
           </View>
