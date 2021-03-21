@@ -21,7 +21,7 @@ My version:
 
 ![Profile](src/assets/imgReadme/fourth.png)
 
-I would like to explain you a few things, there are some thing happening that you won't realize if you don't search 3 profiles or more, and is that this profile page is dynamic according to the user info provided by the API.
+I would like to explain you a few things, there are some things happening that you won't realize until you search 3 profiles or more, and is that this profile page is dynamic according to the user info provided by the API.
 
 ### Navbar
 
@@ -57,13 +57,15 @@ Allows the user to watch four sections =>
 
 The same content we have in **GitHub's page**.
 
-If you watch the Overview section, there's a rectangle that can display 2 sentences, the first:
+If you watch the Overview section, there's a rectangle that can display two sentences.
+
+The first:
 
 _"Click to see my secret readme!"_
 
 ![Secret](src/assets/imgReadme/secret.gif)
 
-And the second is that if you don't have a readme in your profile, a sentence will be displayed, _"I think it's time to make your secret Readme..."_ and, I have added a link that will give you a hint :grin:
+And the second is, if you don't have a readme in your profile, a sentence will be displayed => _"I think it's time to make your secret Readme..."_ and, I have added a link that will give you a hint :grin:
 ![Secret](src/assets/imgReadme/secret-readme.gif)
 
 On the other hand, we have the repositories, which is one of the requirements for this app:
@@ -85,15 +87,15 @@ So, what we have here is a static component that display's user's username only.
 
 ### Extra Credits :yum:
 
-During these four days of intense work, I've finally decided to go with thee commits button and documented code.
+During these four days of intense work, I've finally decided to go with the commits button and documented code.
 
-If you inspect my code, you will see some code which is explained, I think that my code is understandable but in some places as axios callings I've put some comments and why I did that way.
+If you inspect my code, you will see is explained, I think that my code is understandable but in some places, as axios callings, I've put some comments and why I did that way.
 
 On the other hand, we have the commits button.
 
 ![Commits](src/assets/imgReadme/commits.gif)
 
-#### Tools and libraries:
+## Tools and libraries:
 
 For creating this technical test I've used =>
 
@@ -107,7 +109,7 @@ For creating this technical test I've used =>
     Url: https://www.npmjs.com/package/react-native-chart-kit
 
 
-3. _LottieFiles && Lottie React Native:_
+3. _LottieFiles & Lottie React Native:_
 
     Url: https://github.com/lottie-react-native/lottie-react-native
 
@@ -124,7 +126,7 @@ For creating this technical test I've used =>
 
 6. _React Hooks:_
 
-    useState: Allow you to storage information and being used at the moment you need.
+    useState: Allow you to storage information that will be used at the moment you need.
 
     useEffect: Allow you to render information and its syntax let you decided when.
 
@@ -145,11 +147,11 @@ For that, I used the status which is being retrieved when we make a call to our 
 
 1. _Navbar:_
 
-This technical test was about having a profile page with repos, but as I did a clone of github in four days, in my navbar should be topics as "Why github".
+It has only "Profile" and "Commits" but, it should have topics as "Why github".
 
 2. _Repositories Section:_
 
-In Github page there are two more filters which are being displayed as a dropdown.
+In Github page there are two dropdowns.
 
 3. _Projects Section:_
 
@@ -163,4 +165,4 @@ But I thought that for the time I had, it was better to make a clone instead of 
 
 5. _Testing:_
 
-Unfortunately, testing is one topic that I did a few times, my tool was Jest but I did not mastered, is one tool that I want to use.
+Unfortunately, testing is one topic that I did a few times but I didn't have time to implement it in my code.
