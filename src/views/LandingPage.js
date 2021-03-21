@@ -10,7 +10,6 @@ import {
   H1,
   H3,
   Input,
-  Form,
   Item,
   Toast,
   Root,
@@ -21,6 +20,8 @@ import {useNavigation} from '@react-navigation/native';
 
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faArrowAltCircleLeft} from '@fortawesome/free-solid-svg-icons';
+
+import RemoveLetters from "../components/Algorithm/DeleteLetters";
 
 const LandingPage = props => {
   const [username, setUsername] = useState();
@@ -112,6 +113,7 @@ const LandingPage = props => {
     }
   };
 
+
   const removingLetters = data => {
     const splitted = data.split('');
     splitted.pop();
@@ -153,7 +155,7 @@ const LandingPage = props => {
                   borderRadius: 8,
                   borderColor: 'transparent',
                 }}
-                onPress={() => removingLetters(username)}>
+                onPress={() => RemoveLetters(username, setUsername)}>
                 <FontAwesomeIcon
                   icon={faArrowAltCircleLeft}
                   style={{marginRight: 10, marginLeft: 10}}

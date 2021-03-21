@@ -26,7 +26,7 @@ const Overview = props => {
             Click to see my secret readme!
           </Text>
         ) : (
-          <Text style={{fontSize: 14}}>{message}</Text>
+          <Text style={{fontSize: 14, fontWeight: 'bold', textAlign: 'center'}} onPress={() => Linking.openURL("https://dev.to/puf17640/github-secret-add-a-readme-to-your-profile-25j1")} >{message}</Text>
         )}
       </View>
       <View style={{position: "relative", top: 40}}>

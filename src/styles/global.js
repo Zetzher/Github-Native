@@ -94,7 +94,7 @@ const globalStyles = StyleSheet.create({
     alignItems: 'center',
   },
   headerNav: {
-    height: '7%',
+    height: 45,
     backgroundColor: '#24292E',
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -144,8 +144,7 @@ const globalStyles = StyleSheet.create({
     borderRadius: 3,
     height: 25,
     borderWidth: 0.2,
-    position: 'relative',
-    top: 20,
+    marginTop: 20
   },
   packageButtonText: {
     color: '#000',
