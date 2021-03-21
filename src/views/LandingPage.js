@@ -21,7 +21,7 @@ import {useNavigation} from '@react-navigation/native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faArrowAltCircleLeft} from '@fortawesome/free-solid-svg-icons';
 
-import RemoveLetters from "../components/Algorithm/DeleteLetters";
+import RemoveLetters from '../components/Algorithm/DeleteLetters';
 
 const LandingPage = props => {
   const [username, setUsername] = useState();
@@ -29,6 +29,7 @@ const LandingPage = props => {
 
   const navigation = useNavigation();
 
+  //He utilizado una función para hacer todas las llamadas cuando buscamos a un usuario, de esta forma, cuando tenemos toda la información, es enviada a la vista del perfil y no hace otra llamada.
   const gettingProfile = async () => {
     if (!username) {
       Toast.show({
@@ -113,16 +114,6 @@ const LandingPage = props => {
     }
   };
 
-
-  const removingLetters = data => {
-    const splitted = data.split('');
-    splitted.pop();
-    const joined = splitted.join('');
-
-    setUsername(joined);
-  };
-
-
   return (
     <Root>
       <Container style={globalStyles.contenedor}>
@@ -148,19 +139,21 @@ const LandingPage = props => {
               {username}
             </Input>
             {username ? (
-              <Animatable.View  animation="flipInY" style={{position: "relative", right: 4}}>
-              <Button
-                style={{
-                  backgroundColor: 'white',
-                  borderRadius: 8,
-                  borderColor: 'transparent',
-                }}
-                onPress={() => RemoveLetters(username, setUsername)}>
-                <FontAwesomeIcon
-                  icon={faArrowAltCircleLeft}
-                  style={{marginRight: 10, marginLeft: 10}}
-                />
-              </Button>
+              <Animatable.View
+                animation="flipInY"
+                style={{position: 'relative', right: 4}}>
+                <Button
+                  style={{
+                    backgroundColor: 'white',
+                    borderRadius: 8,
+                    borderColor: 'transparent',
+                  }}
+                  onPress={() => RemoveLetters(username, setUsername)}>
+                  <FontAwesomeIcon
+                    icon={faArrowAltCircleLeft}
+                    style={{marginRight: 10, marginLeft: 10}}
+                  />
+                </Button>
               </Animatable.View>
             ) : null}
           </Item>

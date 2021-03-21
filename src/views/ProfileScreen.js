@@ -78,6 +78,7 @@ const ProfileScreen = ({route, navigation}) => {
 
   return (
     <>
+    {/*Los commits son enviados a través de la navbar para utilizarlos más tarde en los componentes de gráficos*/}
       <Navbar commits={commits} />
       <Container>
         <ScrollView>
