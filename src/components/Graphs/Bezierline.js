@@ -32,14 +32,14 @@ const Bezierline = props => {
                   },
                 ],
               }}
-              width={Dimensions.get('window').width - 10} // from react-native
+              width={Dimensions.get('window').width - 10}
               height={220}
-              yAxisInterval={1} // optional, defaults to 1
+              yAxisInterval={1}
               chartConfig={{
                 backgroundColor: '#464646',
                 backgroundGradientFrom: '#464646',
                 backgroundGradientTo: '#A5A5A5',
-                decimalPlaces: 2, // optional, defaults to 2dp
+                decimalPlaces: 2,
                 color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                 labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                 style: {

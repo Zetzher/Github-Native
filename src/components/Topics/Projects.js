@@ -6,7 +6,6 @@ import {faCheck} from '@fortawesome/free-solid-svg-icons';
 
 import Unexpected from '../Unexpected';
 
-import globalStyles from '../../styles/global';
 
 const Projects = (props) => {
     const {userName} = props;

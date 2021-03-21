@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import Overview from './Topics/Overview';
 import Repositories from './Topics/Repositories';

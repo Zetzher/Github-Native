@@ -1,8 +1,8 @@
 import React from 'react';
 
-import {View, Image, ScrollView, Linking} from 'react-native';
+import {View, Linking} from 'react-native';
 
-import {Container, Button, Text} from 'native-base';
+import {Text} from 'native-base';
 
 import globalStyles from "../styles/global";
 

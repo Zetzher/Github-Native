@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {generatePath} from 'react-router';
-import {View, Image, Animated} from 'react-native';
+import {View, Image} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LottieView from 'lottie-react-native';
 import {

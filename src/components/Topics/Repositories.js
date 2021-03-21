@@ -3,7 +3,6 @@ import {View, Linking} from 'react-native';
 import {Text, Item, Input} from 'native-base';
 import Unexpected from "../Unexpected";
 
-
 const Repositories = props => {
   const [...repositories] = props.repos;
 

@@ -1,9 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Linking, ScrollView, Image} from 'react-native';
-import {Text, Container, Item, Form, Input, Button} from 'native-base';
+import {Text, Button} from 'native-base';
 import Unexpected from "../Unexpected";
-
-import globalStyles from '../../styles/global';
 
 const Followers = props => {
   const {users} = props;

@@ -3,7 +3,6 @@ import {View, Image, Linking} from 'react-native';
 import {Button, Text, Badge} from 'native-base';
 import Unexpected from "../Unexpected";
 
-
 import globalStyles from '../../styles/global';
 
 const Packages = () => {

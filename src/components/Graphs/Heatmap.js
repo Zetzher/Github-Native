@@ -1,12 +1,11 @@
 import React from 'react';
-import {View, Dimensions, Text} from 'react-native';
+import {View, Dimensions} from 'react-native';
 import {ContributionGraph} from 'react-native-chart-kit';
 
 import * as Animatable from 'react-native-animatable';
 
 const Heatmap = props => {
   const {data} = props;
-  console.log(data)
   return (
     <>
      {data && <View
@@ -33,7 +32,7 @@ const Heatmap = props => {
               backgroundColor: '#464646',
               backgroundGradientFrom: '#464646',
               backgroundGradientTo: '#A5A5A5',
-              decimalPlaces: 2, // optional, defaults to 2dp
+              decimalPlaces: 2,
               color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
               labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
               style: {

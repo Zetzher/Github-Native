@@ -7,7 +7,7 @@ Github clone according to the requirements and more things added.
 After clone this repo =>
 
 1. npm i
-2. use npx react-native run-android/ios.
+2. use *npx react-native run-android/ios*
 
 ## Preview
 

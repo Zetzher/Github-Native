@@ -1,6 +1,4 @@
 const GetDates = (commits, saveValues, saveMonths) => {
-  const arr = [];
-
   let months = {
     jan: 0,
     feb: 0,
@@ -58,8 +56,6 @@ const GetDates = (commits, saveValues, saveMonths) => {
         months.dec++;
         break;
     }
-
-    // day = new Date(data.creado).getDay()
 
 });
 
