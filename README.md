@@ -7,7 +7,7 @@ Github clone according to the requirements and more things added.
 After clone this repo =>
 
 1. npm i
-2. use *npx react-native run-android/ios*
+2. use _npx react-native run-android/ios_
 
 ## Preview
 
@@ -17,34 +17,39 @@ This is the landing page, as required, it has an input for insert a username.
 But if you take a look, when you start typing there's an animation with an arrow, this button allow you to delete:
 ![Arrow](src/assets/imgReadme/second.gif)
 
-
-
 Furthermore, I have added a loader when you send the username:
 ![Loader](src/assets/imgReadme/third.gif)
 
 :star2::star: Now let's have a look at the next screen :star::star2:
 
 ### This is our Profile page
+
 ![Profile](src/assets/imgReadme/fourth.png)
 
 And I would like to explain you a few things, there are some thing happening that you won't realize if you don't search 3 profiles or more, and is that this profile page is dynamic according to the user info provided by the API.
 
-##### :spades: First:
+### Navbar
+
+![icon-navbar](src/assets/imgReadme/navbar-icon.gif)
+
+The icon allow you to go to the landing page and search for another Github's user.
+
+#### :spades: First:
 
 ![Content-Bio](src/assets/imgReadme/profile-first.png)
 ![Content-Bio](src/assets/imgReadme/profile-second.png)
 
-A Github Profile can have url links as twitter or a personal website, this information is being displayed if the API have it, normally it does but if you have a look on other profiles, you will check that they have an email and the API does not provide that information.
+A Github Profile can have url links as twitter or a personal website, this information is being displayed if the API have it, normally it does but if pay attention at other profiles, you will check that they have an email and the API does not provide that information.
 
-##### :clubs: Second:
+#### :clubs: Second:
 
 ![Followers-Bio](src/assets/imgReadme/profile-third.png)
 
-If you click on one of these options, it prints in the screen the followers, people you are following and your starred projects, and of course, Mine too 🌟!
+If you click on one of these options, prints the followers, the people you are following and starred projects.
 
 ![Followers-Bio](src/assets/imgReadme/bio.gif)
 
-##### :clubs: Third:
+#### :clubs: Third:
 
 This app has an horizontal scrollview:
 
@@ -59,25 +64,22 @@ The same content we have in **GitHub's page**.
 
 If you watch the Overview section, there's a rectangle that can display 2 sentences, the first:
 
-*"Click to see my secret readme!"*
+_"Click to see my secret readme!"_
 
 ![Secret](src/assets/imgReadme/secret.gif)
 
-And the second is that if you don't have a readme in your profile, a sentence will be displayed, *"I think it's time to make your secret Readme..."* and, I have added a link that will give you a hint :grin:
+And the second is that if you don't have a readme in your profile, a sentence will be displayed, _"I think it's time to make your secret Readme..."_ and, I have added a link that will give you a hint :grin:
 ![Secret](src/assets/imgReadme/secret-readme.gif)
-
 
 On the other hand, we have the repositories, which is one of the requirements for this app:
 
 User's repositories are being displayed on our screen and if you click them, you can go to their GitHub repository.
 ![Repositories](src/assets/imgReadme/repositories-filter.gif)
 
+If you didn't sleep, I hope not, you will see our package section:
+![Package](src/assets/imgReadme/packages.gif)
 
-If you didn't sleep, I hope not, we will see our package section:
-![Package](src/assets/imgReadme/package.gif)
-
-What we have here is the same you can watch in the GitHub page.
-
+What we have here is the same you can watch in GitHub page.
 
 **And finally, what we have here are the projects:**
 ![Projects](src/assets/imgReadme/projects.gif)
@@ -85,7 +87,6 @@ What we have here is the same you can watch in the GitHub page.
 Unfortunately, in GitHub's API, I found some endpoints but not the one that retrieves user's projects.
 
 So, what whe have here is a static component that display's user's username only.
-
 
 ### Extra Credits :yum:
 
@@ -97,41 +98,40 @@ On the other hand, we have the commits button.
 
 ![Commits](src/assets/imgReadme/commits.gif)
 
-
 #### Tools and libraries:
 
 For creating this technical test I've used =>
 
-1. *Native base:*
+1. _Native base:_
 
-Url: https://nativebase.io/
-
-
-2. *React Native Chart Kit:*
-
-Url: https://www.npmjs.com/package/react-native-chart-kit
+    Url: https://nativebase.io/
 
 
-3. *LottieFiles && Lottie React Native:*
+2. _React Native Chart Kit:_
 
-Url: https://github.com/lottie-react-native/lottie-react-native
-
-
-4. *React Native Animatable:*
-
-Url: https://github.com/oblador/react-native-animatable
+    Url: https://www.npmjs.com/package/react-native-chart-kit
 
 
-5. *React Native Shadow Generator:*
+3. _LottieFiles && Lottie React Native:_
 
-Url: https://ethercreative.github.io/react-native-shadow-generator/
+    Url: https://github.com/lottie-react-native/lottie-react-native
 
 
-6. *React Hooks:*
+4. _React Native Animatable:_
 
-useState: Allow you to storage information and being used at the moment you need.
+    Url: https://github.com/oblador/react-native-animatable
 
-useEffect: Allow you to render information and its syntax let you decided when.
+
+5. _React Native Shadow Generator:_
+
+    Url: https://ethercreative.github.io/react-native-shadow-generator/
+
+
+6. _React Hooks:_
+
+    useState: Allow you to storage information and being used at the moment you need.
+
+    useEffect: Allow you to render information and its syntax let you decided when.
 
 
 ### Error message
@@ -145,39 +145,33 @@ And **second** is:
 
 For that, I used the status which is being retrieved when we make a call to our API endpoint.
 
-
 And now the final moment arrived, let me show you how it looks like github page in a mobile phone and how it looks like on my app :star_struck::
 
 GitHub Website:
 ![Github-Webpage](src/assets/imgReadme/github-version.gif)
 
-![Julian's-Github-app](src/assets/imgReadme/github-version.gif)
-
+![Julian's-Github-app](src/assets/imgReadme/my-version.gif)
 
 ### Backlog:
 
-1. *Navbar:*
+1. _Navbar:_
 
 This technical test was about having a profile page with repos, but as I did a clone of github in four days, in my navbar should be topics as "Why github".
 
-
-2. *Repositories Section:*
+2. _Repositories Section:_
 
 In Github page there are two more filters which are being displayed as a dropdown.
 
-
-3. *Projects Section:*
+3. _Projects Section:_
 
 Being able to see how many projects the user has.
 
-
-4. *GraphQL:*
+4. _GraphQL:_
 
 API calls were made with Axios but, I tried to learn how GraphQl works last wednesday and I did a backend to practice, here is the link if you want to check it: https://github.com/Zetzher/crud-graphql-native
 
 But I thought that for the time I had, it was better to make a clone instead of a simple repositories page.
 
-
-5. *Testing:*
+5. _Testing:_
 
 Unfortunately, testing is one topic that I did a few times, my tool was Jest but I did not mastered, is one tool that I want to use.
