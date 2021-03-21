@@ -21,7 +21,7 @@ My version:
 
 ![Profile](src/assets/imgReadme/fourth.png)
 
-I would like to explain you a few things, there are some things happening that you won't realize until you search 3 profiles or more, and is that this profile page is dynamic according to the user info provided by the API.
+There are some things happening that you won't realize until you search 3 profiles or more, and is that this profile page is dynamic according to the user info provided by the API.
 
 ### Navbar
 
