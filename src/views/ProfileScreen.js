@@ -4,10 +4,15 @@ import axios from 'axios';
 
 import {View, Image, ScrollView, Linking} from 'react-native';
 
-import {Container, Button, Text} from 'native-base';
+import {Container, Button, Text, Badge} from 'native-base';
 
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faLink, faUserFriends, faStar} from '@fortawesome/free-solid-svg-icons';
+import {
+  faLink,
+  faUserFriends,
+  faStar,
+  faEnvelope,
+} from '@fortawesome/free-solid-svg-icons';
 
 import ScrollTopics from '../components/ScrollTopics';
 import Navbar from '../components/Navbar';
@@ -29,6 +34,7 @@ const ProfileScreen = ({route, navigation}) => {
       followers,
       following,
       twitter_username,
+      email,
     },
     userRepos,
     repoStarred,
@@ -124,6 +130,18 @@ const ProfileScreen = ({route, navigation}) => {
                 </Text>
               </View>
             )}
+            {email && (
+              <View
+                style={{
+                  width: '90%',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginTop: 5,
+                }}>
+                <FontAwesomeIcon icon={faEnvelope} style={{marginRight: 10}} />
+                <Text>{email}</Text>
+              </View>
+            )}
             <View
               style={{
                 width: '90%',
@@ -136,7 +154,9 @@ const ProfileScreen = ({route, navigation}) => {
               <Text onPress={() => setScrollTopic('followers')}>
                 {followers} followers ·
               </Text>
-              <Text onPress={() => setScrollTopic('following')}>
+              <Text
+                onPress={() => setScrollTopic('following')}
+                style={{marginLeft: 3}}>
                 {following} following ·
               </Text>
 

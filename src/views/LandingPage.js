@@ -120,7 +120,6 @@ const LandingPage = props => {
     setUsername(joined);
   };
 
-  console.log(username, 'jjj');
 
   return (
     <Root>
@@ -147,7 +146,7 @@ const LandingPage = props => {
               {username}
             </Input>
             {username ? (
-              <Animatable.View  animation="bounceIn" duration={1000} style={{position: "relative", right: 4}}>
+              <Animatable.View  animation="flipInY" style={{position: "relative", right: 4}}>
               <Button
                 style={{
                   backgroundColor: 'white',

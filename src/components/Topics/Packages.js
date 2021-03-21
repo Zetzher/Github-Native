@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, ScrollView, Linking} from 'react-native';
+import {View, Image, Linking} from 'react-native';
 import {Button, Text, Badge} from 'native-base';
 import Unexpected from "../Unexpected";
 
@@ -48,7 +48,7 @@ const Packages = () => {
             containers — small and lightweight execution environments.
           </Text>
         </View>
-        <Button style={globalStyles.packageButton}>
+        <Button style={globalStyles.packageButton} onPress={() => Linking.openURL("https://docs.github.com/en/packages/guides/configuring-docker-for-use-with-github-packages")}>
           <Text style={globalStyles.packageButtonText}>Learn More</Text>
         </Button>
       </View>
@@ -67,7 +67,7 @@ const Packages = () => {
             the Java runtime environment.
           </Text>
         </View>
-        <Button style={globalStyles.packageButton}>
+        <Button style={globalStyles.packageButton} onPress={() => Linking.openURL("https://docs.github.com/en/packages/guides/configuring-apache-maven-for-use-with-github-packages")}>
           <Text style={globalStyles.packageButtonText}>Learn More</Text>
         </Button>
       </View>
@@ -86,7 +86,7 @@ const Packages = () => {
             development platforms including .NET.
           </Text>
         </View>
-        <Button style={globalStyles.packageButton}>
+        <Button style={globalStyles.packageButton} onPress={() => Linking.openURL("https://docs.github.com/en/packages/guides/configuring-dotnet-cli-for-use-with-github-packages")}>
           <Text style={globalStyles.packageButtonText}>Learn More</Text>
         </Button>
       </View>
@@ -105,7 +105,7 @@ const Packages = () => {
             for the Ruby programming language.
           </Text>
         </View>
-        <Button style={globalStyles.packageButton}>
+        <Button style={globalStyles.packageButton} onPress={() => Linking.openURL("https://docs.github.com/en/packages/guides/configuring-rubygems-for-use-with-github-packages")}>
           <Text style={globalStyles.packageButtonText}>Learn More</Text>
         </Button>
       </View>
@@ -124,7 +124,7 @@ const Packages = () => {
             it easy for developers to share and reuse code.
           </Text>
         </View>
-        <Button style={globalStyles.packageButton}>
+        <Button style={globalStyles.packageButton} onPress={() => Linking.openURL("https://docs.github.com/en/packages/guides/configuring-npm-for-use-with-github-packages")}>
           <Text style={globalStyles.packageButtonText}>Learn More</Text>
         </Button>
       </View>
@@ -155,7 +155,7 @@ const Packages = () => {
             can see and access your images.
           </Text>
         </View>
-        <Button style={globalStyles.packageButton}>
+        <Button style={globalStyles.packageButton} onPress={() => Linking.openURL("https://docs.github.com/en/packages/guides/about-github-container-registry")}>
           <Text style={globalStyles.packageButtonText}>Learn More</Text>
         </Button>
       </View>
