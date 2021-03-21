@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {generatePath} from 'react-router';
-import {View, Image} from 'react-native';
+import {View, Image, Animated} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LottieView from 'lottie-react-native';
 import {
@@ -17,8 +17,10 @@ import {
 } from 'native-base';
 import axios from 'axios';
 import globalStyles from '../styles/global';
-
 import {useNavigation} from '@react-navigation/native';
+
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faArrowAltCircleLeft} from '@fortawesome/free-solid-svg-icons';
 
 const LandingPage = props => {
   const [username, setUsername] = useState();
@@ -110,6 +112,16 @@ const LandingPage = props => {
     }
   };
 
+  const removingLetters = data => {
+    const splitted = data.split('');
+    splitted.pop();
+    const joined = splitted.join('');
+
+    setUsername(joined);
+  };
+
+  console.log(username, 'jjj');
+
   return (
     <Root>
       <Container style={globalStyles.contenedor}>
@@ -120,21 +132,37 @@ const LandingPage = props => {
           <Image
             style={globalStyles.githubIconLanding}
             resizeMode="contain"
-            source={require('../assets/github-icon.png')}
+            source={require('../assets/img/github-icon.png')}
           />
           <H1 style={globalStyles.titulo}>¡Bienvenido a Github!</H1>
           <H3 style={globalStyles.subTitulo}>
             Inserta la cuenta a la que quieres acceder
           </H3>
-          <Form>
-            <Item inlineLabel last style={globalStyles.input}>
-              <Input
-                placeholder="Username"
-                style={{textAlign: 'center'}}
-                onChangeText={e => setUsername(e)}
-              />
-            </Item>
-          </Form>
+
+          <Item inlineLabel last style={globalStyles.input}>
+            <Input
+              placeholder="Username"
+              style={{textAlign: 'center'}}
+              onChangeText={e => setUsername(e)}>
+              {username}
+            </Input>
+            {username ? (
+              <Animatable.View  animation="bounceIn" duration={1000} style={{position: "relative", right: 4}}>
+              <Button
+                style={{
+                  backgroundColor: 'white',
+                  borderRadius: 8,
+                  borderColor: 'transparent',
+                }}
+                onPress={() => removingLetters(username)}>
+                <FontAwesomeIcon
+                  icon={faArrowAltCircleLeft}
+                  style={{marginRight: 10, marginLeft: 10}}
+                />
+              </Button>
+              </Animatable.View>
+            ) : null}
+          </Item>
           {loader && (
             <LottieView
               source={require('../assets/loader/loader.json')}

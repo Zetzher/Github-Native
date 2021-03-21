@@ -10,7 +10,6 @@ import Packages from "./Topics/Packages";
 const ScrollTopics = props => {
   const {topic, message, userRepos, followers, following, repoStarred} = props;
   
-console.log(topic, 'topic')
   return (
     <>
       {topic === "Overview" && <Overview message={message} />}

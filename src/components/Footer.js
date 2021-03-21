@@ -10,7 +10,8 @@ const Footer = () => {
   return (
     <View
       style={{
-        height: 120,
+        flex: 1,
+        height: 140,
         width: '100%',
         borderTopWidth: 0.2,
         alignItems: 'center',

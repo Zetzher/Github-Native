@@ -21,7 +21,7 @@ const Navbar = props => {
         <TouchableHighlight onPress={() => navigation.navigate('Landing')}>
           <Image
             style={globalStyles.githubIcon}
-            source={require('../assets/github_monster.png')}
+            source={require('../assets/img/github_monster.png')}
           />
         </TouchableHighlight>
         <FontAwesomeIcon

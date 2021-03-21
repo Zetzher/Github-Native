@@ -38,8 +38,6 @@ const ProfileScreen = ({route, navigation}) => {
     loader,
   } = route.params;
 
-  //Pendiente poner el twitter_username con su logo si está disponible
-
   const scrollViewCarac = [
     'Overview',
     `Repositories ${userRepos.length}`,
@@ -102,10 +100,34 @@ const ProfileScreen = ({route, navigation}) => {
               <FontAwesomeIcon icon={faLink} style={{marginRight: 10}} />
               <Text onPress={() => Linking.openURL(blog)}>{blog}</Text>
             </View>
+            {twitter_username && (
+              <View
+                style={{
+                  width: '90%',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginTop: 5,
+                }}>
+                <Image
+                  source={require('../assets/img/twitter-icon.png')}
+                  style={{width: 18, height: 18, marginRight: 10}}
+                />
+                <Text
+                  onPress={() =>
+                    Linking.openURL(
+                      generatePath('https://twitter.com/:twitter', {
+                        twitter: twitter_username,
+                      }),
+                    )
+                  }>
+                  @{twitter_username}
+                </Text>
+              </View>
+            )}
             <View
               style={{
                 width: '90%',
-                marginTop: 10,
+                marginTop: 30,
                 marginBottom: 20,
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -155,7 +177,6 @@ const ProfileScreen = ({route, navigation}) => {
             </View>
           </View>
         </ScrollView>
-        
       </Container>
     </>
   );

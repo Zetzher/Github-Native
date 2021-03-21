@@ -26,7 +26,7 @@ const Repositories = props => {
           style={{backgroundColor: '#F8F8F8', borderRadius: 8}}>
           <Input
             placeholder="Find a repository..."
-            style={{}}
+            style={{backgroundColor: "#FFF", borderWidth: 0.2, borderRadius: 4, height: 40, fontSize: 14, paddingLeft: 15}}
             onChangeText={e => filterRepo(e)}
           />
         </Item>
