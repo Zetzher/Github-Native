@@ -14,13 +14,13 @@ After clone this repo =>
 This is the landing page, as required, it has an input for insert a username.
 ![Landing](src/assets/imgReadme/first.png)
 
-But if you take a look, when you start typing there's an animation with an arrow:
-![Arrow](src/assets/imgReadme/second.png)
+But if you take a look, when you start typing there's an animation with an arrow, this button allow you to delete:
+![Arrow](src/assets/imgReadme/second.gif)
 
-This button allow you to delete.
+
 
 Furthermore, I have added a loader when you send the username:
-![Loader](src/assets/imgReadme/third.png)
+![Loader](src/assets/imgReadme/third.gif)
 
 :star2::star: Now let's have a look at the next screen :star::star2:
 
