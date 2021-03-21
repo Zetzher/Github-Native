@@ -10,23 +10,18 @@ After clone this repo =>
 2. use _npx react-native run-android/ios_
 
 ## Preview
+GitHub Website:
+![Github-Webpage](src/assets/imgReadme/github-version.gif)
 
-This is the landing page, as required, it has an input for insert a username.
-![Landing](src/assets/imgReadme/first.png)
+My version: 
+![Julian's-Github-app](src/assets/imgReadme/my-version.gif)
 
-But if you take a look, when you start typing there's an animation with an arrow, this button allow you to delete:
-![Arrow](src/assets/imgReadme/second.gif)
-
-Furthermore, I have added a loader when you send the username:
-![Loader](src/assets/imgReadme/third.gif)
-
-:star2::star: Now let's have a look at the next screen :star::star2:
 
 ### This is our Profile page
 
 ![Profile](src/assets/imgReadme/fourth.png)
 
-And I would like to explain you a few things, there are some thing happening that you won't realize if you don't search 3 profiles or more, and is that this profile page is dynamic according to the user info provided by the API.
+I would like to explain you a few things, there are some thing happening that you won't realize if you don't search 3 profiles or more, and is that this profile page is dynamic according to the user info provided by the API.
 
 ### Navbar
 
@@ -39,7 +34,7 @@ The icon allow you to go to the landing page and search for another Github's use
 ![Content-Bio](src/assets/imgReadme/profile-first.png)
 ![Content-Bio](src/assets/imgReadme/profile-second.png)
 
-A Github Profile can have url links as twitter or a personal website, this information is being displayed if the API have it, normally it does but if pay attention at other profiles, you will check that they have an email and the API does not provide that information.
+A Github Profile can have url links as twitter or a personal website, this information is being displayed if the API have it, normally it does but if you pay attention at other profiles, you will check that they have an email and the API does not provide that information.
 
 #### :clubs: Second:
 
@@ -86,13 +81,13 @@ What we have here is the same you can watch in GitHub page.
 
 Unfortunately, in GitHub's API, I found some endpoints but not the one that retrieves user's projects.
 
-So, what whe have here is a static component that display's user's username only.
+So, what we have here is a static component that display's user's username only.
 
 ### Extra Credits :yum:
 
-During these four days of intense work, I've finally decided going for the commits button and documented code.
+During these four days of intense work, I've finally decided to go with thee commits button and documented code.
 
-If you inspect my code, you will see some code which is explained, I think that my code is understandable but in some places as axios callings I've put some code and why I did that way.
+If you inspect my code, you will see some code which is explained, I think that my code is understandable but in some places as axios callings I've put some comments and why I did that way.
 
 On the other hand, we have the commits button.
 
@@ -145,12 +140,6 @@ And **second** is:
 
 For that, I used the status which is being retrieved when we make a call to our API endpoint.
 
-And now the final moment arrived, let me show you how it looks like github page in a mobile phone and how it looks like on my app :star_struck::
-
-GitHub Website:
-![Github-Webpage](src/assets/imgReadme/github-version.gif)
-
-![Julian's-Github-app](src/assets/imgReadme/my-version.gif)
 
 ### Backlog:
 
